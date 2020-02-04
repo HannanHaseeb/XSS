@@ -59,3 +59,10 @@ If our input correctly placed outside of any HTML tag then JS will
 execute there:
 
 "onmouseover="alert(1); "
+
+"If there is two parameters always check both parameters If one is not vulnerable maybe other one is vulerable "Nevere give up and try to inject in every parameter." Like this:
+<input type="text" name="name" value='First_Parameter'></input>
+<input type="submit" name="submit" value="Second_Parameter"> "
+
+
+					
